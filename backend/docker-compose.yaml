@@ -1,5 +1,6 @@
 services:
   backend:
+    container_name: backend
     build:
       context: .
       target: builder
@@ -12,6 +13,7 @@ services:
       - .env
 
   database:
+    container_name: database
     image: postgres:18
     ports:
       - 15432:5432
@@ -22,6 +24,51 @@ services:
     volumes:
       - db-data:/var/lib/postgresql
 
+  prometheus:
+    container_name: prometheus
+    image: prom/prometheus:latest
+    volumes:
+      - ./prometheus/prometheus.yaml:/etc/prometheus/prometheus.yaml
+    ports:
+      - 9090:9090
+    command:
+      - --config.file=/etc/prometheus/prometheus.yaml
+    networks:
+      - monitoring
+
+  node_exporter:
+    container_name: node_exporter
+    image: prom/node-exporter:latest
+    ports:
+      - 9100:9100
+    command:
+      - "--path.rootfs=/host"
+    pid: host
+    networks:
+      - monitoring
+    volumes:
+      - "/:/host:ro"
+
+  grafana:
+    container_name: grafana
+    image: grafana/grafana:latest
+    restart: unless-stopped
+    ports:
+      - 3000:3000
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_ADMIN_PASS}
+    networks:
+      - monitoring
+    volumes:
+      - ./grafana-data:/var/lib/grafana
+    depends_on:
+      - prometheus
+
 volumes:
-  db-data:
   app:
+  db-data:
+  grafana-data:
+
+networks:
+  monitoring:
+    driver: bridge
