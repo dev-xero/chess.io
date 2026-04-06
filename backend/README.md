@@ -1,8 +1,8 @@
 # chess.io: backend
 
-## generating swagger documentation
+## swagger documentation
 
-this project uses [swaggo/http-swagger](https://github.com/swaggo/http-swagger) to automatically generate swagger documentation. see [here](https://github.com/swaggo/swag#declarative-comments-format) for details about the declarative comments format.
+this project uses [swaggo/http-swagger](https://github.com/swaggo/http-swagger) to automatically generate the swagger specification. see [here](https://github.com/swaggo/swag#declarative-comments-format) for details about the declarative comments format.
 
 ```zsh
 # On MacOS
