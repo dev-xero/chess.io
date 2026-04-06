@@ -1,5 +1,0 @@
-{
-	"dependencies": {
-		"@prisma/adapter-pg": "^7.4.2"
-	}
-}
