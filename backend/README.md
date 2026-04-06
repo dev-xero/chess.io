@@ -1,3 +1,0 @@
-# Chess[dot]io
-
-WIP.
