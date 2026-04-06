@@ -1,5 +1,5 @@
 [build]
-  cmd = "go build -o ./tmp/server cmd/server/main.go"
+  cmd = "swag init -g cmd/server/main.go && go build -o ./tmp/server cmd/server/main.go"
   bin = "./tmp/server"
   delay = 1000
 

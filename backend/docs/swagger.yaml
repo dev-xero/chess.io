@@ -1,0 +1,16 @@
+info:
+  contact: {}
+paths:
+  /api/v1:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Handles base requests
+      tags:
+      - root
+swagger: "2.0"
