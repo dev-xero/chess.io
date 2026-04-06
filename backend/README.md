@@ -2,6 +2,10 @@
 
 this is chess.io's backend source code.
 
+## environment variables
+
+the project makes use of environment variables, loaded from a `.env` file at the backend root directory. there is an example config file at `.env.example`, rename this file to `.env` then use your own environment specific variables.
+
 ## docker compose
 
 this project uses docker and docker compose to run the backend and other container dependencies, such as postgres. make sure you have docker installed on your system, more information [here](https://docs.docker.com/engine/install/).
