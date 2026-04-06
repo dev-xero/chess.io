@@ -9,14 +9,16 @@ import (
 
 type RootHandler struct{}
 
-// RootHandler handles requests to the root index
-//
-// @Summary Handles base requests
-// @Tags root
-// @Accept json
-// @Produce json
-// @Success 200
-// @Router /api/v1 [get]
+/*
+ * RootHandler handles requests to the root index
+ *
+ * @Summary Handles base requests
+ * @Tags root
+ * @Accept json
+ * @Produce json
+ * @Success 200
+ * @Router /api/v1 [get]
+ */
 func (h *RootHandler) Get(c fiber.Ctx) error {
 	return utils.Success(
 		c,
