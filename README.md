@@ -1,3 +1,3 @@
 ## Chess.io
 
-🚧 Major updates in progress. 🚧
+🚧 Complete re-write in progress. 🚧
