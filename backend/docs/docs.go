@@ -15,7 +15,7 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/api/v1/": {
+        "/": {
             "get": {
                 "consumes": [
                     "application/json"
@@ -26,7 +26,45 @@ const docTemplate = `{
                 "tags": [
                     "base"
                 ],
-                "summary": "Handles base requests",
+                "summary": "Handle requests to the base endpoint",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/v1/": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "root"
+                ],
+                "summary": "Handle requests to the api root endpoint",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/health": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "base"
+                ],
+                "summary": "Handle requests to the health check endpoint",
                 "responses": {
                     "200": {
                         "description": "OK"

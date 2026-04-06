@@ -4,6 +4,18 @@ info:
   title: chess.io specification
   version: "1.0"
 paths:
+  /:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Handle requests to the base endpoint
+      tags:
+      - base
   /api/v1/:
     get:
       consumes:
@@ -13,7 +25,19 @@ paths:
       responses:
         "200":
           description: OK
-      summary: Handles base requests
+      summary: Handle requests to the api root endpoint
+      tags:
+      - root
+  /health:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Handle requests to the health check endpoint
       tags:
       - base
 swagger: "2.0"
