@@ -1,5 +1,23 @@
 # chess.io: backend
 
+this is chess.io's backend source code.
+
+## docker compose
+
+this project uses docker and docker compose to run the backend and other container dependencies, such as postgres. make sure you have docker installed on your system, more information [here](https://docs.docker.com/engine/install/).
+
+```zsh
+docker compose down -v && docker compose up -d
+```
+
+if the containers build successfully, you may access the api at `http://localhost:8080/api/v1/`. to view container logs, use:
+
+```zsh
+docker compose logs -f [container-name]
+```
+
+replace `[container-name]` with the actual container name from the docker compose yaml file.
+
 ## swagger documentation
 
 this project uses [swaggo/http-swagger](https://github.com/swaggo/http-swagger) to automatically generate the specifications. see [here](https://github.com/swaggo/swag#declarative-comments-format) for more details about the declarative comments format.
