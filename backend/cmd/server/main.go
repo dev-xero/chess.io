@@ -8,10 +8,16 @@ import (
 	"github.com/gofiber/fiber/v3/log"
 )
 
+//	@title			chess.io specification
+//	@version		1.0
+//	@description	endpoints for interacting with the backend
+
 func main() {
 	cfg := config.Load()
 	db := database.Connect(cfg)
 	app := fiber.New()
+
 	routes.Bootstrap(app, db, cfg)
-	log.Fatal(app.Listen(":8080"))
+
+	log.Fatal(app.Listen(":" + cfg.Port))
 }

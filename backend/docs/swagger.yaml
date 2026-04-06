@@ -1,7 +1,10 @@
 info:
   contact: {}
+  description: endpoints for interacting with the backend
+  title: chess.io specification
+  version: "1.0"
 paths:
-  /api/v1:
+  /api/v1/:
     get:
       consumes:
       - application/json
@@ -12,5 +15,5 @@ paths:
           description: OK
       summary: Handles base requests
       tags:
-      - root
+      - base
 swagger: "2.0"
