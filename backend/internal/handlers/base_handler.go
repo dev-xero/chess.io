@@ -5,9 +5,13 @@ import (
 
 	"github.com/dev-xero/chess.io/internal/utils"
 	"github.com/gofiber/fiber/v3"
+	"github.com/gofiber/fiber/v3/log"
+	"gorm.io/gorm"
 )
 
-type BaseHandler struct{}
+type BaseHandler struct {
+	DB *gorm.DB
+}
 
 // BaseHandler handles requests to the / base endpoint
 //
@@ -39,12 +43,20 @@ func (h *BaseHandler) Get(c fiber.Ctx) error {
 //	@success	200
 //	@router		/health [get]
 func (h *BaseHandler) Health(c fiber.Ctx) error {
+	dbStatus := "healthy"
+
+	sqlDB, err := h.DB.DB()
+	if err != nil || sqlDB.Ping() != nil {
+		dbStatus = "unhealthy"
+	}
+	log.Info("database status: " + dbStatus)
+
 	return utils.Success(
 		c,
 		http.StatusOK,
 		"health check results",
 		fiber.Map{
-			"database": "healthy",
+			"database": dbStatus,
 		},
 	)
 }

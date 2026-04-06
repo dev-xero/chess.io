@@ -13,7 +13,9 @@ import (
 )
 
 func Bootstrap(app *fiber.App, db *gorm.DB, cfg *config.Config) {
-	baseHandler := &handlers.BaseHandler{}
+	baseHandler := &handlers.BaseHandler{
+		DB: db,
+	}
 	rootHandler := &handlers.RootHandler{}
 
 	middleware.PromInit()
