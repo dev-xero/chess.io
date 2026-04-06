@@ -1,20 +1,15 @@
 services:
   backend:
-    build: .
-    restart: unless-stopped
+    build:
+      context: .
+      target: builder
+    command: sh -c "go install github.com/air-verse/air@latest && air"
+    volumes:
+      - .:/app
     ports:
       - 8080:8080
     env_file:
       - .env
-    develop:
-      watch:
-        - action: sync
-          path: .
-          target: /app
-        - action: rebuild
-          path: go.sum
-        - action: rebuild
-          path: .env
 
   database:
     image: postgres:18
@@ -29,3 +24,4 @@ services:
 
 volumes:
   db-data:
+  app:
