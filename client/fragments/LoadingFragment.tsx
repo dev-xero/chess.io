@@ -1,5 +1,5 @@
 import Lottie from 'lottie-react';
-import ChessIO from '../components/ChessIO';
+import ChessIO from '../components/AppLogo';
 import spinnerAnimation from '@/animated/spinner.json';
 
 export default function LoadingFragment() {

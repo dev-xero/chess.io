@@ -1,6 +1,6 @@
 'use client';
 
-import ChessIO from '@/components/ChessIO';
+import ChessIO from '@/components/AppLogo';
 import Marker from '@/components/ui/Marker';
 import CenteredGrid from '@/layout/CenteredGrid';
 import IPlayer from '@/global/i.player';

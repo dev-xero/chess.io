@@ -13,7 +13,7 @@ import { getCookie } from 'cookies-next';
 import NetworkConfig from '@/config/http';
 import useWebSocket, { ReadyState } from 'react-use-websocket';
 import FilledButton from '@/components/ui/FilledButton';
-import ChessIO from '@/components/ChessIO';
+import ChessIO from '@/components/AppLogo';
 
 export default function Page() {
     const pathname = usePathname();

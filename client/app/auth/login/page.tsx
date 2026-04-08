@@ -1,7 +1,7 @@
 'use client';
 
 import FilledButton from '@/components/ui/FilledButton';
-import ChessIO from '@/components/ChessIO';
+import ChessIO from '@/components/AppLogo';
 import InputField from '@/components/ui/InputField';
 import Error from '@/components/ui/Error';
 import Link from '@/components/ui/Link';

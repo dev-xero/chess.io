@@ -2,7 +2,7 @@
 
 import ClickableChessboard from '@/components/ClickableChessboard';
 import GameHistoryBar from '@/components/GameHistoryBar';
-import ChessIO from '@/components/ChessIO';
+import ChessIO from '@/components/AppLogo';
 import GameStatsBar from '@/components/GameStatsBar';
 import { useEffect, useState } from 'react';
 import config from '@/config/config';
