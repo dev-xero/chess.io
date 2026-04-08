@@ -12,7 +12,7 @@ import ChessGame, {
     BoardMove,
     ChessState,
     Player,
-} from '@/interfaces/chess.game.state';
+} from '@/interfaces/GameInterface';
 import useWebSocket, { ReadyState } from 'react-use-websocket';
 import { getCookie } from 'cookies-next';
 import axios from 'axios';
@@ -21,7 +21,7 @@ import {
     PlayerInfo,
     WSMoveMessage,
     WSStartMessage,
-} from './interfaces/gameplay.interfaces';
+} from './interfaces/GamePlayInterface';
 import CenteredGrid from './CenteredGrid';
 
 export default function GamePlayLayout() {

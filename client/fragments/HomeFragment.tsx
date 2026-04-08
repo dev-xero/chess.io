@@ -1,14 +1,14 @@
 'use client';
 
 import ChessIO from '@/components/AppLogo';
-import Marker from '@/components/ui/Marker';
+import Marker from '@/components/Marker';
 import CenteredGrid from '@/layout/CenteredGrid';
-import IPlayer from '@/global/i.player';
+import IPlayer from '@/interfaces/PlayerInterface';
 import { useContext, useState, useEffect } from 'react';
-import { PlayerContext } from '@/providers/player/context';
+import { PlayerContext } from '@/providers/player/Context';
 import LoadingFragment from '@/fragments/LoadingFragment';
-import IconButton from '@/components/ui/IconButton';
-import ChallengeIcon from '@/components/ui/ChallengeIcon';
+import IconButton from '@/components/IconButton';
+import ChallengeIcon from '@/components/ChallengeIcon';
 import { ChartLineUp, SignOut } from '@phosphor-icons/react';
 import config from '@/config/config';
 import axios from 'axios';

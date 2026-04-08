@@ -1,8 +1,8 @@
 export const keys = {
-    auth: '_act',
-    user: 'uur',
-    game: {
-        pending: 'gpe',
-        active: 'gaa'
-    }
-}
+  auth: "auth-token",
+  user: "user",
+  game: {
+    pending: "game-pending",
+    active: "game-active",
+  },
+};

@@ -1,9 +1,9 @@
 'use client';
 
 import { keys } from '@/config/keys';
-import IPlayer from '@/global/i.player';
+import IPlayer from '@/interfaces/PlayerInterface';
 import React, { useEffect, useState } from 'react';
-import { PlayerContext } from './context';
+import { PlayerContext } from './PlayerContext';
 
 interface IPlayerProviderProps {
     children: React.ReactNode;

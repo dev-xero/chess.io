@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import GamePlayLayout from '@/layout/GamePlayLayout';
+import GamePlayLayout from "@/layout/GamePlayLayout";
 
 export default function Page() {
-    return <GamePlayLayout />;
+  return <GamePlayLayout />;
 }

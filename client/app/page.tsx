@@ -2,7 +2,7 @@
 
 import ProtectedPage from "@/components/ProtectedPage";
 import HomeFragment from "@/fragments/HomeFragment";
-import { PlayerProvider } from "@/providers/player/provider";
+import { PlayerProvider } from "@/providers/PlayerProvider";
 
 export default function Home() {
   return (

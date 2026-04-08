@@ -1,7 +1,7 @@
 const NetworkConfig = {
-    headers: {
-        'Content-Type': 'application/json'
-    }
-}
+  headers: {
+    "Content-Type": "application/json",
+  },
+};
 
 export default NetworkConfig;

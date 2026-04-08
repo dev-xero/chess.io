@@ -1,4 +1,4 @@
-import { ChessState } from "@/interfaces/chess.game.state";
+import { ChessState } from "@/interfaces/GameInterface";
 
 export interface WSStartMessage {
     type: string;
