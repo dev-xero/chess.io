@@ -1,3 +1,5 @@
+"use client";
+
 import spinnerAnimation from "@/components/animated/spinner.json";
 import clsx from "clsx";
 import Lottie from "lottie-react";

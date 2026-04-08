@@ -12,10 +12,10 @@ import { FormEvent, useState } from "react";
 import axios, { AxiosError } from "axios";
 import config from "@/config/config";
 import NetworkConfig from "@/config/http";
-import { ErrorResponse } from "@/util/Error";
+import { ErrorResponse } from "@/util/error";
 import { setCookie } from "cookies-next";
 import { keys } from "@/config/keys";
-import { inOneHour } from "@/util/Date";
+import { inOneHour } from "@/util/date";
 
 export default function Page() {
   const [userName, setUserName] = useState("");

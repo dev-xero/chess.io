@@ -7,7 +7,7 @@ import Error from "@/components/Error";
 import ProtectedPage from "@/components/ProtectedPage";
 import { usePathname } from "next/navigation";
 import axios, { AxiosError } from "axios";
-import { ErrorResponse } from "@/util/Error";
+import { ErrorResponse } from "@/util/error";
 import config from "@/config/config";
 import { getCookie } from "cookies-next";
 import NetworkConfig from "@/config/http";

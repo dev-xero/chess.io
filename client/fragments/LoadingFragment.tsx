@@ -1,3 +1,5 @@
+"use client";
+
 import Lottie from "lottie-react";
 import ChessIO from "../components/AppLogo";
 import spinnerAnimation from "@/components/animated/spinner.json";

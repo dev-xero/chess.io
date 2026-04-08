@@ -9,7 +9,7 @@ import Success from "@/components/Success";
 import config from "@/config/config";
 import NetworkConfig from "@/config/http";
 import CenteredGrid from "@/layout/CenteredGrid";
-import { ErrorResponse } from "@/util/Error";
+import { ErrorResponse } from "@/util/error";
 import { Asterisk, Horse, Lock } from "@phosphor-icons/react";
 import axios, { AxiosError } from "axios";
 import { FormEvent, useState } from "react";

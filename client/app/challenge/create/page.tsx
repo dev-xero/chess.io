@@ -6,7 +6,7 @@ import TimeControlPill from "@/components/TimeControlPill";
 import Error from "@/components/Error";
 import { TIME_CONTROL } from "@/config/controls";
 import CenteredGrid from "@/layout/CenteredGrid";
-import { ErrorResponse } from "@/util/Error";
+import { ErrorResponse } from "@/util/error";
 import axios, { AxiosError } from "axios";
 import { useState } from "react";
 import NetworkConfig from "@/config/http";
