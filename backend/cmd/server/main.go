@@ -1,3 +1,7 @@
+//	@title			chess.io specification
+//	@version		1.0
+//	@description	endpoints for interacting with the backend
+
 package main
 
 import (
@@ -7,10 +11,6 @@ import (
 	"github.com/gofiber/fiber/v3"
 	"github.com/gofiber/fiber/v3/log"
 )
-
-//	@title			chess.io specification
-//	@version		1.0
-//	@description	endpoints for interacting with the backend
 
 func main() {
 	cfg := config.Load()

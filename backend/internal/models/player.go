@@ -22,6 +22,10 @@ type Player struct {
 	DeletedAt      gorm.DeletedAt `gorm:"index" json:"-"`
 }
 
+func (Player) TableName() string {
+	return "players"
+}
+
 // BeforeCreate is a hook that runs right before gorm creates a new player record.
 //
 // This hook takes in the password received from the web client, hashes that, then
@@ -36,7 +40,7 @@ func (p *Player) BeforeCreate(tx *gorm.DB) (err error) {
 	}
 	encodedPasswordHash, err := utils.GenerateEncodedPasswordHash(p.PasswordHash, params)
 	if err != nil {
-		log.Fatal("Failed to generate encoded password hash from the Argon2 utility method", err)
+		log.Fatal("Failed to generate encoded password hash from the Argon2 utility method: ", err)
 	}
 	p.PasswordHash = encodedPasswordHash
 	return

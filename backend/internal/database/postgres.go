@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/dev-xero/chess.io/internal/config"
+	"github.com/dev-xero/chess.io/internal/models"
 	"github.com/gofiber/fiber/v3/log"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
@@ -24,9 +25,15 @@ func Connect(cfg *config.Config) *gorm.DB {
 	if err != nil {
 		log.Fatal("Failed to connect postgres:", err)
 	}
-
 	log.Info("Postgres connected successfully")
-	err = db.AutoMigrate()
+
+	err = db.AutoMigrate(
+		&models.Country{},
+		&models.Player{},
+	)
+	if err != nil {
+		log.Fatal("Failed to perform database migrations: ", err)
+	}
 
 	return db
 }

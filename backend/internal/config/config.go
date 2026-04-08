@@ -4,6 +4,7 @@ import (
 	"os"
 
 	"github.com/gofiber/fiber/v3/log"
+	"github.com/joho/godotenv"
 )
 
 type Config struct {
@@ -17,6 +18,10 @@ type Config struct {
 }
 
 func Load() *Config {
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
 	log.Info("Environment variables loaded")
 
 	return &Config{
