@@ -1,33 +1,43 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @layer utilities {
-  :root {
-    --background: #05080d;
-    --foreground: #e4eaf8;
-  }
+    :root {
+        --background: #05080d;
+        --foreground: #e4eaf8;
+    }
 
-  * {
-    box-sizing: border-box;
-  }
+    * {
+        box-sizing: border-box;
+    }
 
-  html,
-  body,
-  #root {
-    height: 100%;
-  }
+    html,
+    body,
+    #root {
+        height: 100%;
+    }
 
-  body {
-    color: var(--foreground);
-    background: var(--background);
-    font-family: Arial, Helvetica, sans-serif;
-    overflow-x: hidden;
-  }
+    body {
+        color: var(--foreground);
+        background: var(--background);
+        font-family: Arial, Helvetica, sans-serif;
+        overflow-x: hidden;
+    }
 }
 
 @layer utilities {
     .text-balance {
         text-wrap: balance;
     }
+}
+@theme {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-base: #0b0f17;
+    --color-lighter: #151b28;
+    --color-faded: #adb7cb;
+    --color-primary: #4f90f0;
+    --color-white: #ffffff;
+    --color-green: #64fc6c;
 }
 
 input:autofill {
@@ -39,6 +49,6 @@ input {
 }
 
 ::selection {
-    background: #4F90F0;
+    background: #4f90f0;
     color: var(--foreground);
 }

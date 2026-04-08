@@ -8,6 +8,7 @@ export default function Marker() {
         height={128}
         src="/marker.svg"
         alt=""
+        loading="eager"
         className="absolute top-[32px] left-[32px] -translate-x-1/2 -translate-y-1/2 z-[-99] select-none"
       />
       <Image
@@ -15,6 +16,7 @@ export default function Marker() {
         height={128}
         src="/marker.svg"
         alt=""
+        loading="eager"
         className="absolute bottom-[24px] right-[24px] translate-x-1/2 translate-y-1/2 z-[-99] select-none"
       />
     </>
