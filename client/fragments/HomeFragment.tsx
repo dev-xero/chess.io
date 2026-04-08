@@ -59,13 +59,13 @@ export default function HomeFragment() {
         <section className="text-center flex items-center gap-2 mt-8">
           <p className="font-bold mb-2 text-faded">
             Logged in as:{" "}
-            <span className="!font-normal text-primary">
+            <span className="font-normal! text-primary">
               @{(player as IPlayer).username}
             </span>
           </p>
           <p className="font-bold mb-2 text-faded">
             Rating:{" "}
-            <span className="!font-normal text-primary">
+            <span className="font-normal! text-primary">
               {(player as IPlayer).rating}
             </span>
           </p>

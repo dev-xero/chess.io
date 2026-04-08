@@ -19,7 +19,7 @@ export default function IconButton(props: IIconButtonProps) {
         props.secondary
           ? "bg-transparent !hover:opacity-100 hover:border-primary hover:bg-base"
           : "bg-primary",
-        props.isDisabled ? "disabled:opacity-70 disabled:!scale-100" : "",
+        props.isDisabled ? "disabled:opacity-70 disabled:scale-100!" : "",
       )}
       onClick={props.onClick}
       disabled={props.isDisabled}

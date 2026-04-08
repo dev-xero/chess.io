@@ -270,7 +270,7 @@ export default function ClickableChessboard(props: IChessBoardInterface) {
   );
 
   return (
-    <div className="w-full max-w-screen-lg mx-auto col-span-2 order-1 md:order-2">
+    <div className="w-full max-w-(--breakpoint-lg) mx-auto col-span-2 order-1 md:order-2">
       <Chessboard
         boardOrientation={props.playerColor == "w" ? "white" : "black"}
         position={boardPosition}

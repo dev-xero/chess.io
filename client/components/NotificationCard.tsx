@@ -32,7 +32,7 @@ export default function NotificationCard(props: NotificationCardProps) {
             "flex gap-2 items-center p-2 rounded-md border-2 border-background bg-opacity-40 w-[220px]",
             props.type == "Success"
               ? "!border-green bg-[#0e2414]"
-              : "!border-[#e0402b] bg-[#140b0a]",
+              : "border-[#e0402b]! bg-[#140b0a]",
           )}
         >
           <CheckCircle size={24} weight="fill" className="text-green" />

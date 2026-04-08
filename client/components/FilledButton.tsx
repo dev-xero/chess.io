@@ -16,7 +16,7 @@ export default function FilledButton(props: IFilledButtonProps) {
     <button
       className={clsx(
         "w-full my-2 p-2 mb-8 py-3 rounded-md bg-primary font-bold hover:opacity-90 transition-all active:scale-[.98] text-lg flex gap-2 items-center justify-center",
-        props.isDisabled ? "disabled:opacity-70 disabled:!scale-100" : "",
+        props.isDisabled ? "disabled:opacity-70 disabled:scale-100!" : "",
       )}
       onClick={props.onClick}
       disabled={props.isDisabled}

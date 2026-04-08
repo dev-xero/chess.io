@@ -281,7 +281,7 @@ export default function GamePlayLayout() {
                     <header className="w-full flex items-center justify-center mt-4">
                         <ChessIO />
                     </header>
-                    <section className="flex flex-col md:grid grid-cols-4 gap-2 mx-auto w-[calc(100%-16px)] py-2 !max-w-[1400px]">
+                    <section className="flex flex-col md:grid grid-cols-4 gap-2 mx-auto w-[calc(100%-16px)] py-2 max-w-[1400px]!">
                         <GameStatsBar
                             whoseTurn={whoseTurn}
                             gameType={game.state.gameType}

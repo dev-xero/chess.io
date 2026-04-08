@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.10",
+    "@tailwindcss/postcss": "^4.2.2",
     "axios": "^1.15.0",
     "chess.js": "^1.4.0",
     "clsx": "^2.1.1",
