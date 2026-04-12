@@ -19,8 +19,8 @@ type Argon2Params struct {
 
 // Generates an encoded password hashed with salting.
 //
-// This external function encodes the generated hash and salt into a format safe
-// for storage.
+// This external function encodes the generated hash and salt into a
+// format safe enough for storage.
 func GenerateEncodedPasswordHash(password string, p *Argon2Params) (string, error) {
 	hash, salt, err := generatePasswordHash(password, p)
 	if err != nil {
@@ -36,10 +36,10 @@ func GenerateEncodedPasswordHash(password string, p *Argon2Params) (string, erro
 
 // Generates a cryptographically secure password hash using Argon2id.
 //
-// Argon2 expects parameters such as salt, iterations, memory, number of threads.
-// This function receives a "hashing" configuration via the `Argon2Params` struct
-// then generates a new Argon2ID key from the password string. This hash is used
-// in conjunction with the salt hash for encoding.
+// This function receives a "hashing" configuration via the `Argon2Params`
+// struct then generates a new Argon2ID key from the password string.
+//
+// This hash is used in conjunction with the salt hash for encoding.
 func generatePasswordHash(password string, p *Argon2Params) (hash []byte, salt []byte, err error) {
 	salt, err = generateSaltFromRandomBytes(p.SaltLength)
 	if err != nil {
@@ -58,9 +58,13 @@ func generatePasswordHash(password string, p *Argon2Params) (hash []byte, salt [
 
 // Generates a random cryptographically secure byte slice.
 //
-// This function takes in an unsigned 32 bit integer to generate a byte slice of the
-// same length. It uses Go's built in `rand.Read` method to fill this byte slice
-// accordingly. This is used in the salt generation step.
+// This function takes in an unsigned 32 bit integer to generate a byte slice 
+// of the same length. 
+// 
+// It uses Go's built in `rand.Read` method to fill this byte slice
+// accordingly. 
+// 
+// This is used in the salt generation step.
 func generateSaltFromRandomBytes(n uint32) ([]byte, error) {
 	b := make([]byte, n)
 	_, err := rand.Read(b)
