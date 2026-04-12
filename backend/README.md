@@ -1,5 +1,7 @@
 # Chess.io: Backend
 
+**NOTE: I will have to make YET another large re-write, this time I will write more idiomatic Go, perhaps still stick to Gorm, and largely remove all use of Fiber.**
+
 This is chess.io's backend source code.
 
 ## Environment Variables
