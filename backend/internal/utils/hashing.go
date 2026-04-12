@@ -58,12 +58,12 @@ func generatePasswordHash(password string, p *Argon2Params) (hash []byte, salt [
 
 // Generates a random cryptographically secure byte slice.
 //
-// This function takes in an unsigned 32 bit integer to generate a byte slice 
-// of the same length. 
-// 
+// This function takes in an unsigned 32 bit integer to generate a byte slice
+// of the same length.
+//
 // It uses Go's built in `rand.Read` method to fill this byte slice
-// accordingly. 
-// 
+// accordingly.
+//
 // This is used in the salt generation step.
 func generateSaltFromRandomBytes(n uint32) ([]byte, error) {
 	b := make([]byte, n)

@@ -1,3 +1,21 @@
+definitions:
+  models.Player:
+    properties:
+      bio:
+        type: string
+      created_at:
+        type: string
+      elo_rating:
+        type: integer
+      player_id:
+        type: string
+      secret_question:
+        type: string
+      updated_at:
+        type: string
+      username:
+        type: string
+    type: object
 info:
   contact: {}
   description: endpoints for interacting with the backend
@@ -28,6 +46,20 @@ paths:
       summary: Handle requests to the api root endpoint
       tags:
       - root
+  /api/v1/auth/register:
+    post:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.Player'
+      summary: Handles player registration requests
+      tags:
+      - authentication
   /health:
     get:
       consumes:

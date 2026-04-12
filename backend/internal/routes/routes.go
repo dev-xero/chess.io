@@ -28,4 +28,8 @@ func Bootstrap(app *fiber.App, db *gorm.DB, cfg *config.Config) {
 
 	api := app.Group("/api/v1")
 	api.Get("/", rootHandler.Get)
+
+	authHandler := &handlers.AuthenticationHandler{}
+	apiAuthEndpoints := api.Group("/auth")
+	apiAuthEndpoints.Post("/register", authHandler.Register)
 }
