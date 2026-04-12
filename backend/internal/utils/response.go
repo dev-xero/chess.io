@@ -15,11 +15,11 @@ func Success(c fiber.Ctx, status int, message string, data any) error {
 	})
 }
 
-func Error(c fiber.Ctx, status int, message string) error {
+func Error(c fiber.Ctx, status int, message string, error any) error {
 	return c.Status(status).JSON(fiber.Map{
 		"success":   false,
 		"message":   message,
-		"data":      nil,
+		"error":     error,
 		"timestamp": time.Now(),
 	})
 }

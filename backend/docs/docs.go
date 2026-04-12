@@ -65,6 +65,17 @@ const docTemplate = `{
                     "authentication"
                 ],
                 "summary": "Handles player registration requests",
+                "parameters": [
+                    {
+                        "description": "Registration Payload",
+                        "name": "payload",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dto.RegistrationRequest"
+                        }
+                    }
+                ],
                 "responses": {
                     "201": {
                         "description": "Created",
@@ -96,6 +107,31 @@ const docTemplate = `{
         }
     },
     "definitions": {
+        "dto.RegistrationRequest": {
+            "type": "object",
+            "required": [
+                "password",
+                "secret_question",
+                "username"
+            ],
+            "properties": {
+                "password": {
+                    "type": "string",
+                    "maxLength": 100,
+                    "minLength": 8
+                },
+                "secret_question": {
+                    "type": "string",
+                    "maxLength": 100,
+                    "minLength": 10
+                },
+                "username": {
+                    "type": "string",
+                    "maxLength": 24,
+                    "minLength": 2
+                }
+            }
+        },
         "models.Player": {
             "type": "object",
             "properties": {
