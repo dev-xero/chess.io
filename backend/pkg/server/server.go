@@ -11,5 +11,4 @@ func NewServer(
 	config *config.Config,
 	logger *zap.SugaredLogger,
 ) {
-	logger.Infof("config: %+v\n", config)
 }

@@ -8,13 +8,14 @@ import (
 
 // Config represents the server's environment variables.
 type Config struct {
-	Port      string
-	DbHost    string
-	DbPort    string
-	DbUser    string
-	DbPass    string
-	DbName    string
-	DbSslMode string
+	Environment string
+	Port        string
+	DbHost      string
+	DbPort      string
+	DbUser      string
+	DbPass      string
+	DbName      string
+	DbSslMode   string
 }
 
 // New allocates a new configuration struct in memory and
@@ -23,13 +24,14 @@ type Config struct {
 // of them are empty.
 func New() (*Config, error) {
 	cfg := Config{
-		Port:      os.Getenv("PORT"),
-		DbHost:    os.Getenv("PXSTGRES_HOST"),
-		DbPort:    os.Getenv("POSTGRES_PORT"),
-		DbUser:    os.Getenv("POSTGRES_USER"),
-		DbPass:    os.Getenv("POSTGRES_PASS"),
-		DbName:    os.Getenv("POSTGRES_NAME"),
-		DbSslMode: os.Getenv("POSTGRES_SSLMODE"),
+		Environment: os.Getenv("ENVIRONMENT"),
+		Port:        os.Getenv("PORT"),
+		DbHost:      os.Getenv("POSTGRES_HOST"),
+		DbPort:      os.Getenv("POSTGRES_PORT"),
+		DbUser:      os.Getenv("POSTGRES_USER"),
+		DbPass:      os.Getenv("POSTGRES_PASS"),
+		DbName:      os.Getenv("POSTGRES_NAME"),
+		DbSslMode:   os.Getenv("POSTGRES_SSLMODE"),
 	}
 	if err := validateCfg(cfg); err != nil {
 		return nil, err
