@@ -2,6 +2,16 @@
 
 This is chess.io's backend source code.
 
+## Pre-commit Hooks
+
+I use [pre-commit](https://pre-commit.com/) to run some simple pre-git commit hooks, like formatting, linting for commit message spell checks. See the previous link for instructions on how to set it up.
+
+On Homebrew:
+
+```shell
+brew install pre-commit
+```
+
 ## Environment Variables
 
 The project makes use of environment variables loaded from a `.env` file at the backend root directory. There is an example config file at `.env.example`. 

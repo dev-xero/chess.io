@@ -1,0 +1,18 @@
+default_install_hook_types: [pre-commit, commit-msg]
+repos:
+  - repo: https://github.com/crate-ci/typos
+    rev: v1.19.0
+    hooks:
+      - id: typos
+        args: []
+        stages: [pre-commit]
+      - id: typos
+        name: commit-msg-typos
+        stages: [commit-msg]
+
+  - repo: https://github.com/tekwizely/pre-commit-golang
+    rev: v1.0.0-rc.4
+    hooks:
+      - id: go-fmt
+        args: []
+        stages: [pre-commit]

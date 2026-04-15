@@ -31,7 +31,7 @@ func run(ctx context.Context) error {
 		return fmt.Errorf("failed to configure server: %v", err)
 	}
 
-	inDevelopment := os.Getenv("ENVIRONMENT") == "development"
+	inDevelopment := os.Getenv("SERVER_MODE") == "debug"
 	logger := logger.NewLogger(inDevelopment)
 
 	server.NewServer(config, logger)
