@@ -10,6 +10,7 @@ Using Homebrew:
 
 ```shell
 brew install pre-commit
+pre-commit install
 ```
 
 ## Environment Variables
