@@ -18,11 +18,11 @@ type Config struct {
 	DbSslMode  string
 }
 
-// New allocates a new configuration struct in memory and
+// LoadFromEnv allocates a new configuration struct in memory and
 // returns a reference to the newly created struct.
 // It validates the configuration fields by making sure that none
 // of them are empty.
-func New() (*Config, error) {
+func LoadFromEnv() (*Config, error) {
 	cfg := Config{
 		ServerMode: os.Getenv("SERVER_MODE"),
 		Port:       os.Getenv("PORT"),
