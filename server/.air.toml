@@ -1,7 +1,8 @@
 [build]
-  cmd = "go build -o ./tmp/server cmd/server/main.go"
-  bin = "./tmp/server"
+  cmd = "go build -o ./tmp/http cmd/http/main.go"
+  bin = "./tmp/http"
   delay = 1000
+  exclude_dir = ["grafana", "bruno", "prometheus"]
 
 [log]
   color = true
