@@ -2,4 +2,4 @@
 .env
 .env.local
 .tmp/
-grafana-data/
+grafana/

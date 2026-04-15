@@ -22,7 +22,7 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASS}
       POSTGRES_DB: ${POSTGRES_NAME}
     volumes:
-      - db-data:/var/lib/postgresql
+      - postgres_data:/var/lib/postgresql
 
   prometheus:
     container_name: prometheus
@@ -49,6 +49,27 @@ services:
     volumes:
       - "/:/host:ro"
 
+  grafana_db:
+    container_name: grafana_db
+    image: postgres:18
+    restart: always
+    ports:
+      - 5488:5432
+    environment:
+      POSTGRES_USER: ${GRAFANA_DB_USER}
+      POSTGRES_PASSWORD: ${GRAFANA_DB_PASS}
+      POSTGRES_DB: ${GRAFANA_DB_NAME}
+    healthcheck:
+      test:
+        ["CMD-SHELL", "pg_isready -U ${GRAFANA_DB_USER} -d ${GRAFANA_DB_NAME}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - monitoring
+    volumes:
+      - grafana_db:/var/lib/postgresql
+
   grafana:
     container_name: grafana
     image: grafana/grafana:latest
@@ -56,18 +77,29 @@ services:
     ports:
       - 3000:3000
     environment:
+      GF_DATABASE_TYPE: postgres
+      GF_DATABASE_HOST: grafana_db:5432
+      GF_DATABASE_NAME: ${GRAFANA_DB_NAME}
+      GF_DATABASE_USER: ${GRAFANA_DB_USER}
+      GF_DATABASE_PASSWORD: ${GRAFANA_DB_PASS}
+      GF_DATABASE_SSL_MODE: ${GRAFANA_DB_SSLMODE}
+      GF_SECURITY_ADMIN_USER: ${GRAFANA_ADMIN_USER}
       GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_ADMIN_PASS}
     networks:
       - monitoring
     volumes:
-      - ./grafana-data:/var/lib/grafana
+      - ./grafana:/var/lib/grafana
     depends_on:
-      - prometheus
+      grafana_db:
+        condition: service_healthy
+      prometheus:
+        condition: service_started
 
 volumes:
   app:
-  db-data:
-  grafana-data:
+  postgres_data:
+  grafana_db:
+  grafana:
 
 networks:
   monitoring:

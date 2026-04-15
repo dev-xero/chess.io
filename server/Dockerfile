@@ -3,7 +3,7 @@ WORKDIR /app
 COPY go.mod go.sum ./
 RUN go mod download
 COPY . .
-RUN go build -o server cmd/server/main.go
+RUN go build -o http cmd/http/main.go
 
 FROM alpine:latest
 RUN adduser -D -h /app chess
