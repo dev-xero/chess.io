@@ -1,6 +1,6 @@
 [build]
-  cmd = "go build -o ./tmp/server cmd/server/main.go"
-  bin = "./tmp/server"
+  cmd = "go build -o ./.tmp/server cmd/server/main.go"
+  bin = "./.tmp/server"
   delay = 1000
 
 [log]
