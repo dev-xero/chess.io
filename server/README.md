@@ -1,6 +1,6 @@
-# Chess.io: Backend
+# Chess.io: Server
 
-This is chess.io's backend source code.
+This is chess.io's server source code.
 
 ## Pre-commit Hooks
 
