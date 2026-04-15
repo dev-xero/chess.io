@@ -1,4 +1,4 @@
-# Chess.io: Server
+# chess.io server
 
 This is chess.io's server source code.
 
