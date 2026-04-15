@@ -8,9 +8,9 @@ import (
 	_ "github.com/lib/pq"
 )
 
-// InitializeDatabase constructs a postgres datasource name and attempts
+// NewConnection constructs a postgres datasource name and attempts
 // to connect to the database.
-func NewDatabaseConnection(c *config.Config) (*sqlx.DB, error) {
+func NewConnection(c *config.Config) (*sqlx.DB, error) {
 	datasourceName := fmt.Sprintf(
 		"host=%s user=%s password=%s dbname=%s port=%s sslmode=%s",
 		c.DbHost,

@@ -56,7 +56,7 @@ func bootstrap() (*Server, error) {
 		return nil, err
 	}
 
-	db, err := database.NewDatabaseConnection(cfg)
+	db, err := database.NewConnection(cfg)
 	if err != nil {
 		return nil, err
 	}
