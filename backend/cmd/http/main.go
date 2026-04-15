@@ -7,6 +7,7 @@ import (
 	"os/signal"
 
 	"github.com/dev-xero/chess.io/pkg/config"
+	"github.com/dev-xero/chess.io/pkg/database"
 	"github.com/dev-xero/chess.io/pkg/logger"
 	"github.com/dev-xero/chess.io/pkg/server"
 )
@@ -26,15 +27,21 @@ func run(ctx context.Context) error {
 	ctx, cancel := signal.NotifyContext(ctx, os.Interrupt)
 	defer cancel()
 
-	config, err := config.New()
+	cfg, err := config.New()
 	if err != nil {
 		return fmt.Errorf("failed to configure server: %v", err)
 	}
 
-	inDevelopment := os.Getenv("SERVER_MODE") == "debug"
-	logger := logger.NewLogger(inDevelopment)
+	db, err := database.NewDatabaseConnection(cfg)
+	if err != nil {
+		return fmt.Errorf("failed to initialize a database connection: %v", err)
+	}
 
-	server.NewServer(config, logger)
+	server.NewServer(
+		logger.NewLogger(cfg.ServerMode),
+		cfg,
+		db,
+	)
 
 	return nil
 }

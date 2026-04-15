@@ -1,11 +1,13 @@
 package logger
 
-import "go.uber.org/zap"
+import (
+	"go.uber.org/zap"
+)
 
 // NewLogger provides a reference to a zap 'sugared' logger.
-func NewLogger(inDevelopment bool) *zap.SugaredLogger {
+func NewLogger(serverMode string) *zap.SugaredLogger {
 	var logger *zap.Logger
-	if inDevelopment {
+	if serverMode == "debug" {
 		logger = zap.Must(zap.NewDevelopment())
 	} else {
 		logger = zap.Must(zap.NewProduction())

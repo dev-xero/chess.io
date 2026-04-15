@@ -6,12 +6,17 @@ import (
 
 	"github.com/dev-xero/chess.io/pkg/config"
 	"github.com/gin-gonic/gin"
+	"github.com/jmoiron/sqlx"
 	"go.uber.org/zap"
 )
 
 // NewServer creates a new webserver. It accepts high-level
 // server configuration.
-func NewServer(config *config.Config, logger *zap.SugaredLogger) {
+func NewServer(
+	logger *zap.SugaredLogger,
+	config *config.Config,
+	database *sqlx.DB,
+) {
 	gin.SetMode(config.ServerMode)
 	mux := gin.Default()
 	mux.GET("/ping", func(c *gin.Context) {
