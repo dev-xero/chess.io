@@ -16,7 +16,7 @@ func NewServer(
 	logger *zap.SugaredLogger,
 	config *config.Config,
 	database *sqlx.DB,
-) {
+) *http.Server {
 	gin.SetMode(config.ServerMode)
 	mux := gin.Default()
 	mux.GET("/ping", func(c *gin.Context) {
@@ -31,6 +31,5 @@ func NewServer(
 		WriteTimeout:   10 * time.Second,
 		MaxHeaderBytes: 1 << 20,
 	}
-	logger.Info("http webserver listening at http://localhost:" + config.Port)
-	s.ListenAndServe()
+	return s
 }

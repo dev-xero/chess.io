@@ -37,11 +37,11 @@ func run(ctx context.Context) error {
 		return fmt.Errorf("failed to initialize a database connection: %v", err)
 	}
 
-	server.NewServer(
-		logger.NewLogger(cfg.ServerMode),
-		cfg,
-		db,
-	)
+	log := logger.NewLogger(cfg.ServerMode)
+
+	srv := server.NewServer(log, cfg, db)
+	srv.ListenAndServe()
+	log.Info("http webserver listening at http://localhost:" + cfg.Port)
 
 	return nil
 }
