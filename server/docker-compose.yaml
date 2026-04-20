@@ -1,16 +1,15 @@
 services:
   backend:
     container_name: backend
-    build:
-      context: .
-      target: builder
-    command: sh -c "go install github.com/air-verse/air@latest && air"
+    working_dir: /app
+    image: cosmtrek/air
     volumes:
-      - .:/app
+      - ./:/app
     ports:
       - 8080:8080
     env_file:
       - .env
+    command: sh -c "air"
 
   database:
     container_name: database

@@ -4,7 +4,7 @@ This is chess.io's server source code.
 
 ## Pre-commit Hooks
 
-I use [pre-commit](https://pre-commit.com/) to run some simple pre-git commit hooks, like formatting, linting, and commit message spell checks. See the previous link for instructions on how to set it up.
+I use [pre-commit](https://pre-commit.com/) actions like code linting and spell checks. See the previous link for instructions on how to set it up.
 
 Using Homebrew:
 
