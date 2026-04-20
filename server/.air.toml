@@ -2,7 +2,7 @@
   cmd = "go build -o ./tmp/http cmd/http/main.go"
   bin = "./tmp/http"
   delay = 1000
-  exclude_dir = ["grafana", "bruno", "prometheus"]
+  exclude_dir = ["grafana", "bruno", "prometheus", "certs"]
 
 [log]
   color = true
