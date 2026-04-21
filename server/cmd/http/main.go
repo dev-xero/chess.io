@@ -6,7 +6,7 @@ import (
 	"os"
 	"os/signal"
 
-	"github.com/dev-xero/chess.io/pkg/server"
+	"github.com/dev-xero/chess.io/internal/server"
 )
 
 // main is the entry point to the webserver.

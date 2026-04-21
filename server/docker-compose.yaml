@@ -14,14 +14,17 @@ services:
   database:
     container_name: database
     image: postgres:18
-    ports:
-      - 15432:5432
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASS}
       POSTGRES_DB: ${POSTGRES_NAME}
     volumes:
+      - ./certs:/certs:ro
+      - ./scripts/ssl_config.sh:/docker-entrypoint-initdb.d/ssl_config.sh
+      - ./scripts/pg_entrypoint.sh:/usr/local/bin/pg_entrypoint.sh
       - postgres_data:/var/lib/postgresql
+    entrypoint: ["/usr/local/bin/pg_entrypoint.sh"]
+    restart: always
 
   prometheus:
     container_name: prometheus
@@ -31,7 +34,7 @@ services:
     ports:
       - 9090:9090
     command:
-      - --config.file=/etc/prometheus/prometheus.yaml
+      - "--config.file=/etc/prometheus/prometheus.yaml"
     networks:
       - monitoring
 
@@ -52,8 +55,6 @@ services:
     container_name: grafana_db
     image: postgres:18
     restart: always
-    ports:
-      - 5488:5432
     environment:
       POSTGRES_USER: ${GRAFANA_DB_USER}
       POSTGRES_PASSWORD: ${GRAFANA_DB_PASS}

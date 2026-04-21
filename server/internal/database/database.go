@@ -3,7 +3,7 @@ package database
 import (
 	"fmt"
 
-	"github.com/dev-xero/chess.io/pkg/config"
+	"github.com/dev-xero/chess.io/internal/config"
 	"github.com/jmoiron/sqlx"
 	_ "github.com/lib/pq"
 )

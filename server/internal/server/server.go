@@ -5,9 +5,9 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/dev-xero/chess.io/pkg/config"
-	"github.com/dev-xero/chess.io/pkg/database"
-	"github.com/dev-xero/chess.io/pkg/logger"
+	"github.com/dev-xero/chess.io/internal/config"
+	"github.com/dev-xero/chess.io/internal/database"
+	logger "github.com/dev-xero/chess.io/internal/loggger"
 	"github.com/gin-gonic/gin"
 	"github.com/jmoiron/sqlx"
 	"go.uber.org/zap"
